@@ -90,6 +90,7 @@ resource "azurerm_kubernetes_cluster" "myfirstckuster" {
   tags = {
     Environment = "Production"
   }
+  depends_on = [azurerm_virtual_network.hackathon_bayer_vnet]
 }
 
 output "client_certificate" {
