@@ -11,10 +11,33 @@ terraform {
 provider "azurerm" {
   features {}
 }
+resource "azurerm_resource_provider_registration" "compute" {
+  name= "Microsoft.Compute"
+}
 
+resource "azurerm_resource_provider_registration" "network" {
+  name = "Microsoft.Network"
+}
+
+resource "azurerm_resource_provider_registration" "containerservice" {
+  name = "Microsoft.ContainerService"
+}
+
+resource "azurerm_resource_provider_registration" "storage" {
+name = "Microsoft.Storage"
+}
+
+# Optional: Register additional providers for managed identity and monitoring
+resource "azurerm_resource_provider_registration" "managed_identity" {
+  name = "Microsoft.ManagedIdentity"
+}
+
+resource "azurerm_resource_provider_registration" "operations_management" {
+  name = "Microsoft.OperationsManagement"
+}
 resource "azurerm_resource_group" "hackathon_bayer_rg" {
   name     = "hackathon-bayer-rg-resources"
-  location = "centralindia"
+  location = "centralus"
 }
 
 resource "azurerm_virtual_network" "hackathon_bayer_vnet" {
