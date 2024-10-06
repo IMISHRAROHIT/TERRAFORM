@@ -14,7 +14,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "hackathon_bayer_rg" {
   name     = "hackathon-bayer-rg-resources"
-  location = "West Europe"
+  location = "centralindia"
 }
 
 resource "azurerm_virtual_network" "hackathon_bayer_vnet" {
